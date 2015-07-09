@@ -5,13 +5,13 @@ Please note - this is my private project. More than welcome to view, comment, he
 
 Requirements
 ------------------------------------------------------------------------------------
-RaspberryPI 
-Android Studio 
-Android cellphone device
+1. RaspberryPI 
+2. Android Studio 
+3. Android cellphone device
   - wifi 
   - accel sensor 
   - v4.2 or higher 
-java stuffs sdk, jdk
+4. java stuffs sdk, jdk
 
 Library Description 
 ------------------------------------------------------------------------------------
