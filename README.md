@@ -1,2 +1,25 @@
 # pirobot
-Repository for android client software, and python server software. This is used to control a RC tank im busy building. 
+Repository for android client software, and python server software. This is used to control a RC tank im busy building.
+
+Please note - this is my private project. More than welcome to view, comment, help out, take, share, etc. Will try keep up to date. 
+
+Requirements
+------------------------------------------------------------------------------------
+RaspberryPI 
+Android Studio 
+Android cellphone device
+  - wifi 
+  - accel sensor 
+  - v4.2 or higher 
+java stuffs sdk, jdk
+
+Library Description 
+------------------------------------------------------------------------------------
+1. Can find the android library in \libray-android\PiroBotController\
+   Apk function: 
+   Stop & Start sending of accel sensor data 
+   Enter an IP address & Port number 
+   View a log 
+
+
+
