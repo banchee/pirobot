@@ -9,11 +9,11 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
 def doubleMotorTankEngine(conn):
-  tank = tank.tank()
+  tinyTim = tank.tank()
   count = 0
   while True:
     try:
-      data = conn.recv(100).strip()
+      data = conn.recv(1024).strip()
     except error, msg:
       print 'Data Received Failed. Error Code : ' + str(msg[0]) + ' Message ' + msg[1]
     if not data:
@@ -22,47 +22,47 @@ def doubleMotorTankEngine(conn):
       count += 1
 
     coordinates = data.split(',')
-    xpos = (float(coordinates[0].split(':')[1].strip()) * -1)
-    ypos = (float(coordinates[1].split(':')[1].strip()) * -1)
+    if len(coordinates) > 1:
+      xpos = round((float(coordinates[0].split(':')[1].strip()) * -1),1)
+      ypos = round((float(coordinates[1].split(':')[1].strip()) * -1),1)
 
     print 'Y:' + str(ypos) + '\nX:' + str(xpos)
 
-    if (ypos > 2 or yos < -2) and xpos > 2
-      tank.right()
-    elif (ypos > 2 or ypos < -2) and xpos < -2
-      tank.left()
-    elif ypos > 2
-      tank.forward()
-    elif ypos < -2
-      tank.reverse()
-    elif xpos > 2
-      tank.left()
-    elif xpos < -2
-      tank.right()
-    else
-      tank.stop()
+    if (ypos > 2 or ypos < -2) and xpos > 2:
+      tinyTim.right()
+    elif (ypos > 2 or ypos < -2) and xpos < -2:
+      tinyTim.left()
+    elif ypos > 2:
+      tinyTim.forward()
+    elif ypos < -2:
+      tinyTim.reverse()
+    elif xpos > 2:
+      tinyTim.left()
+    elif xpos < -2:
+      tinyTim.right()
+    else:
+      tinyTim.stop()
 
     conn.sendall('')
 
-  tank.stop()
+  tinyTim.stop()
   conn.close()
 
-comms = comms.comms(8875)
+comms = tankcomms.tankcomms(8875)
 comms.openSocket()
-comms.socket.listen(1)
+comms.sock.listen(1)
+comms.sock.settimeout(10)
 
 while 1:
   try:
-    conn, addr comms.socket.accept()
-    start_new_thread(doubleMotorTankEngine, conn)
-  except comms.socket.error, msg:
-    print 'Bind failed. Error Code : ' + str(msg[0]) + ' Message ' + msg[1]
+    conn, addr = comms.sock.accept()
+    start_new_thread(doubleMotorTankEngine, (conn,))
+  except error, msg:
     break
-
 
 comms.close()
 GPIO.cleanup()
-
+print 'Connection closed'
 
 
 

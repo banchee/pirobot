@@ -1,6 +1,6 @@
 import RPi.GPIO as gpio
 
-class Switch(object):
+class switch(object):
   def __init__(self, vccpin=0, ch1=0, ch2=0):
     self.vccpin = vccpin
     self.ch1 = ch1
@@ -19,26 +19,26 @@ class Switch(object):
   def powerSwitch(self, off_on=0):
     gpio.output(self.vccpin, off_on)
 
-  def channelOn(channel=0):
+  def chOn(channel):
     if channel == 1:
       gpio.output(self.ch1, 1)
     elif channel > 1:
       gpio.output(self.ch2, 1)
 
-  def channelOff(channel=0):
+  def chOff(channel):
     if channel == 1:
       gpio.output(self.ch1, 0)
     elif channel > 1:
       gpio.output(self.ch2, 0)
 
   def on(self):
-    self.channelOn(1)
-    self.channelOn(2)
+    switch.chOn(self,1)
+    switch.chOn(self,2)
 
   def off(self):
-    self.channelOff(1)
-    self.channelOff(2)
+    self.chOff(1)
+    self.chOff(2)
 
   def idle(self):
-    self.channelOn(1)
-    self.channelOff(2)
+    self.chOn(1)
+    self.chOff(2)

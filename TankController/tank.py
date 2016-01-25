@@ -4,28 +4,28 @@ class tank(object):
   def __init__(self):
     self.left_motor  = motor.motor(11,15)
     self.right_motor = motor.motor(11,15)
-    self.actions = {'forward':False, 'reverse':False, 'left':False, 'right':False, 'static':True}
+    self.actions = {'forward':False, 'reverse':False, 'left':False, 'right':False, 'stop':True}
 
   def forward(self):
-    if not self.actions['foward']:
+    if not self.actions['forward']:
       self.left_motor.positive()
       self.right_motor.positive()
 
-      for key, value in self.actions.items()
-        if key == 'forward'
-            self.actions[key] = True
-          else
-            self.actions[key] = False
+      for key, value in self.actions.items():
+        if key == 'forward':
+          self.actions[key] = True
+        else:
+          self.actions[key] = False
 
   def reverse(self):
     if not self.actions['reverse']:
       self.left_motor.negative()
       self.right_motor.negative()
 
-      for key, value in self.actions.items()
-          if key == 'reverse'
+      for key, value in self.actions.items():
+          if key == 'reverse':
             self.actions[key] = True
-          else
+          else:
             self.actions[key] = False
 
   def left(self):
@@ -33,10 +33,10 @@ class tank(object):
       self.left_motor.positive()
       self.right_motor.negative()
 
-      for key, value in self.actions.items()
-          if key == 'left'
+      for key, value in self.actions.items():
+          if key == 'left':
             self.actions[key] = True
-          else
+          else:
             self.actions[key] = False
 
   def right(self):
@@ -44,10 +44,10 @@ class tank(object):
       self.left_motor.negative()
       self.right_motor.positive()
 
-      for key, value in self.actions.items()
-          if key == 'right'
+      for key, value in self.actions.items():
+          if key == 'right':
             self.actions[key] = True
-          else
+          else:
             self.actions[key] = False
 
   def stop(self):
@@ -55,8 +55,8 @@ class tank(object):
       self.left_motor.stop()
       self.left_motor.stop()
 
-      for key, value in self.actions.items()
-          if key == 'static'
+      for key, value in self.actions.items():
+          if key == 'static':
             self.actions[key] = True
-          else
+          else:
             self.actions[key] = False
