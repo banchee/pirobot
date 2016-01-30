@@ -65,13 +65,10 @@ while 1:
   try:
     conn, addr = comms.sock.accept()
     start_new_thread(doubleMotorTankEngine, (conn,tinyTim))
-  except:
-    print 'error'
+  except socket.error, msg:
+    print 'Timeout server'
     break
 
 comms.sock.close()
 GPIO.cleanup()
 print 'Connection closed'
-
-
-
