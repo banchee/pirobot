@@ -3,13 +3,13 @@ import switch
 class motor(object):
 
   def __init__(self, ch1=0, ch2=0):
-    self.switch = switch.switch(0, ch1, ch2)
+    self.switchmodule = switch.switch(0, ch1, ch2)
 
   def positive(self):
-    self.switch.on()
+    self.switchmodule.on()
 
   def negative(self):
-    self.switch.off()
+    self.switchmodule.off()
 
   def stop(self):
-    self.switch.idle()
+    self.switchmodule.idle()

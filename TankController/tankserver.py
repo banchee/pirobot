@@ -54,19 +54,19 @@ comms.sock.settimeout(10)
 
 tinyTim = tank.tank()
 
-GPIO.setup(tinyTim.right_motor.swtich.vccpin, GPIO.OUT)
-GPIO.setup(tinyTim.right_motor.swtich.ch1, GPIO.OUT)
-GPIO.setup(tinyTim.right_motor.swtich.ch2, GPIO.OUT)
-GPIO.output(tinyTim.right_motor.switch.vccpin, 0)
-GPIO.output(tinyTim.right_motor.switch.ch1, 0)
-GPIO.output(tinyTim.right_motor.switch.ch2, 0)
+GPIO.setup(tinyTim.right_motor.switchmodule.vccpin, GPIO.OUT)
+GPIO.setup(tinyTim.right_motor.switchmodule.ch1, GPIO.OUT)
+GPIO.setup(tinyTim.right_motor.switchmodule.ch2, GPIO.OUT)
+GPIO.output(tinyTim.right_motor.switchmodule.vccpin, 0)
+GPIO.output(tinyTim.right_motor.switchmodule.ch1, 0)
+GPIO.output(tinyTim.right_motor.switchmodule.ch2, 0)
 
-GPIO.setup(tinyTim.left_motor.swtich.vccpin, GPIO.OUT)
-GPIO.setup(tinyTim.left_motor.swtich.ch1, GPIO.OUT)
-GPIO.setup(tinyTim.left_motor.swtich.ch2, GPIO.OUT)
-GPIO.output(tinyTim.left_motor.switch.vccpin, 0)
-GPIO.output(tinyTim.left_motor.switch.ch1, 0)
-GPIO.output(tinyTim.left_motor.switch.ch2, 0)
+GPIO.setup(tinyTim.left_motor.switchmodule.vccpin, GPIO.OUT)
+GPIO.setup(tinyTim.left_motor.switchmodule.ch1, GPIO.OUT)
+GPIO.setup(tinyTim.left_motor.switchmodule.ch2, GPIO.OUT)
+GPIO.output(tinyTim.left_motor.switchmodule.vccpin, 0)
+GPIO.output(tinyTim.left_motor.switchmodule.ch1, 0)
+GPIO.output(tinyTim.left_motor.switchmodule.ch2, 0)
 
 
 while 1:
