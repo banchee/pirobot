@@ -8,6 +8,7 @@ class tank(object):
 
   def forward(self):
     if not self.actions['forward']:
+      print 'Forward'
       self.left_motor.positive()
       self.right_motor.positive()
 
@@ -19,6 +20,7 @@ class tank(object):
 
   def reverse(self):
     if not self.actions['reverse']:
+      print 'Reverse'
       self.left_motor.negative()
       self.right_motor.negative()
 
@@ -30,6 +32,7 @@ class tank(object):
 
   def left(self):
     if not self.actions['left']:
+      print 'Left'
       self.left_motor.positive()
       self.right_motor.negative()
 
@@ -41,6 +44,7 @@ class tank(object):
 
   def right(self):
     if not self.actions['right']:
+      print 'Right'
       self.left_motor.negative()
       self.right_motor.positive()
 
@@ -52,11 +56,12 @@ class tank(object):
 
   def stop(self):
     if not self.actions['stop']:
+      print 'Idle'
       self.left_motor.stop()
       self.left_motor.stop()
 
       for key, value in self.actions.items():
-          if key == 'static':
+          if key == 'stop':
             self.actions[key] = True
           else:
             self.actions[key] = False
