@@ -5,7 +5,7 @@ class switch(object):
     self.vccpin = vccpin
     self.ch1 = ch1
     self.ch2 = ch2
-    gpio.setmode(GPIO.BOARD)
+    gpio.setmode(gpio.BOARD)
     self.gpioSetup
 
   def gpioSetup(self):
