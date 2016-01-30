@@ -1,5 +1,7 @@
 import RPi.GPIO as gpio
 
+GPIO.setmode(GPIO.BOARD)
+
 class switch(object):
   def __init__(self, vccpin=0, ch1=0, ch2=0):
     self.vccpin = vccpin
