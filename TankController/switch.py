@@ -19,21 +19,21 @@ class switch(object):
   def powerSwitch(self, off_on=0):
     gpio.output(self.vccpin, off_on)
 
-  def chOn(channel):
+  def chOn(channel=0):
     if channel == 1:
       gpio.output(self.ch1, 1)
     elif channel > 1:
       gpio.output(self.ch2, 1)
 
-  def chOff(channel):
+  def chOff(channel=0):
     if channel == 1:
       gpio.output(self.ch1, 0)
     elif channel > 1:
       gpio.output(self.ch2, 0)
 
   def on(self):
-    switch.chOn(self,1)
-    switch.chOn(self,2)
+    self.chOn(1)
+    self.chOn(2)
 
   def off(self):
     self.chOff(1)
