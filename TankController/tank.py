@@ -2,8 +2,8 @@ import motor
 
 class tank(object):
   def __init__(self):
-    self.left_motor  = motor.motor(11,15)
-    self.right_motor = motor.motor(13,12)
+    self.left_motor  = motor.motor(7,11)
+    self.right_motor = motor.motor(12,13)
     self.actions = {'forward':False, 'reverse':False, 'left':False, 'right':False, 'stop':True}
 
   def forward(self):
