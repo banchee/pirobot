@@ -8,8 +8,7 @@ import tankcomms
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
-def doubleMotorTankEngine(conn):
-  tinyTim = tank.tank()
+def doubleMotorTankEngine(conn,tinyTim):
   count = 0
   while True:
     try:
@@ -53,10 +52,27 @@ comms.openSocket()
 comms.sock.listen(1)
 comms.sock.settimeout(10)
 
+tinyTim = tank.tank()
+
+gpio.setup(tinyTim.right_motor.swtich.vccpin, gpio.OUT)
+gpio.setup(tinyTim.right_motor.swtich.ch1, gpio.OUT)
+gpio.setup(tinyTim.right_motor.swtich.ch2, gpio.OUT)
+gpio.output(tinyTim.right_motor.switch.vccpin, 0)
+gpio.output(tinyTim.right_motor.switch.ch1, 0)
+gpio.output(tinyTim.right_motor.switch.ch2, 0)
+
+gpio.setup(tinyTim.left_motor.swtich.vccpin, gpio.OUT)
+gpio.setup(tinyTim.left_motor.swtich.ch1, gpio.OUT)
+gpio.setup(tinyTim.left_motor.swtich.ch2, gpio.OUT)
+gpio.output(tinyTim.left_motor.switch.vccpin, 0)
+gpio.output(tinyTim.left_motor.switch.ch1, 0)
+gpio.output(tinyTim.left_motor.switch.ch2, 0)
+
+
 while 1:
   try:
     conn, addr = comms.sock.accept()
-    start_new_thread(doubleMotorTankEngine, (conn,))
+    start_new_thread(doubleMotorTankEngine, (conn,tinyTim))
   except error, msg:
     break
 

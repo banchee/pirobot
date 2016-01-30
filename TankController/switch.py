@@ -5,16 +5,6 @@ class switch(object):
     self.vccpin = vccpin
     self.ch1 = ch1
     self.ch2 = ch2
-    gpio.setmode(gpio.BOARD)
-    self.gpioSetup
-
-  def gpioSetup(self):
-    gpio.setup(self.vccpin, gpio.OUT)
-    gpio.setup(self.ch1, gpio.OUT)
-    gpio.setup(self.ch2, gpio.OUT)
-    gpio.output(self.vccpin, 0)
-    gpio.output(self.ch1, 0)
-    gpio.output(self.ch2, 0)
 
   def powerSwitch(self, off_on=0):
     gpio.output(self.vccpin, off_on)
