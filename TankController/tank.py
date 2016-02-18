@@ -4,7 +4,7 @@ class tank(object):
   def __init__(self):
     self.left_motor  = motor.motor(7,11)
     self.right_motor = motor.motor(12,13)
-    self.actions = {'forward':False, 'reverse':False, 'left':False, 'right':False, 'stop':True}
+    self.actions = {'forward':False, 'reverse':False, 'left':False, 'right':False, 'stop':False}
 
   def forward(self):
     if not self.actions['forward']:
@@ -58,7 +58,7 @@ class tank(object):
     if not self.actions['stop']:
       print 'Idle'
       self.left_motor.stop()
-      self.left_motor.stop()
+      self.right_motor.stop()
 
       for key, value in self.actions.items():
           if key == 'stop':
