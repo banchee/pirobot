@@ -81,5 +81,5 @@ time.sleep(5)
 #     break
 
 comms.sock.close()
-GPIO.cleanup()
+# GPIO.cleanup()
 print 'Connection closed'
