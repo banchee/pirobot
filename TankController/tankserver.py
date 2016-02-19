@@ -61,24 +61,24 @@ GPIO.output(tinyTim.left_motor.switchmodule.ch1, 0)
 GPIO.output(tinyTim.left_motor.switchmodule.ch2, 1)
 
 
-tinyTim.left()
-time.sleep(5)
-tinyTim.right()
-time.sleep(5)
-tinyTim.forward()
-time.sleep(5)
-tinyTim.reverse()
-time.sleep(5)
-tinyTim.stop()
-time.sleep(5)
+# tinyTim.left()
+# time.sleep(5)
+# tinyTim.right()
+# time.sleep(5)
+# tinyTim.forward()
+# time.sleep(5)
+# tinyTim.reverse()
+# time.sleep(5)
+# tinyTim.stop()
+# time.sleep(5)
 
-# while 1:
-#   try:
-#     conn, addr = comms.sock.accept()
-#     start_new_thread(doubleMotorTankEngine, (conn,tinyTim))
-#   except socket.error, msg:
-#     print 'Timeout server'
-#     break
+while 1:
+  try:
+    conn, addr = comms.sock.accept()
+    start_new_thread(doubleMotorTankEngine, (conn,tinyTim))
+  except socket.error, msg:
+    print 'Timeout server'
+    break
 
 comms.sock.close()
 # GPIO.cleanup()
